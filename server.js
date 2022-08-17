@@ -26,6 +26,8 @@ app.get('/', async (req, res) => {
     res.render('index.ejs', { items: todoItems, left: itemsLeft })
 })
 
+
+
 app.post('/addToDo', (req, res) => {
     db.collection('todos').insertOne({ thing: req.body.todoItem, completed: false })
         .then(result => {
@@ -33,6 +35,27 @@ app.post('/addToDo', (req, res) => {
             res.redirect('/')
         })
         .catch(error => console.error(error))
+})
+
+app.put('/markUncomplete', (req, res) => {
+    db.collection('todos').updateOne({ thing: req.body.itemsFromJS }, {
+        $set: {
+            completed: false
+        }
+    })
+        .then(result => {
+            console.log('uncheck complete')
+            res.json('uncheck complete')
+        })
+})
+
+app.delete('/deleteItem', (req, res) => {
+    db.collection('todos').deleteOne({ thing: req.body.itemFromJS })
+        .then(result => {
+            console.log('todo deleted')
+            res.json('todo deleted')
+        })
+        .catch(error => console.log(error))
 })
 
 app.put('/markComplete', (req, res) => {
