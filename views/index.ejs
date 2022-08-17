@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>TODO APPLICATION</h1>
+
+        <form action="/addToDo" class="form-body" method="POST">
+            <input type="text" placeholder="what do you have to do..." name="todoItem">
+            <input type="submit">
+        </form>
+
+        <ul class="todoItems">
+            <% for(let i = 0; i < items.length; i++){%>
+            <li class="item">
+                <% if(items[i].completed === true) {%>
+                <span class="completed"><%= items[i].thing %></span>
+                <%} else {%>
+                <span><%= items[i].thing %></span>
+                <% } %>
+                <span class="fa fa-trash"></span>
+            </li>
+            <%} %>
+        </ul>
+    </div>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

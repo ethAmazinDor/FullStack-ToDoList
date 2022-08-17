@@ -1,0 +1,29 @@
+h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-container {
+    text-align: center;
+}
+
+.form-body {
+    margin-top: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
+        color: gray;
+
+}
+
+ul {
+    margin-top: 35px;
+}
+
+li {
+    list-style: none ;
+    font-size: 2rem;
+    margin-top: 10px;
+    cursor: pointer;
+}
